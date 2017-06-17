@@ -1,0 +1,96 @@
+<% I18n.with_options :scope => [:activerecord, :attributes, :chatroom] do |l| %>
+<div class="container chatroom">
+  <div class="row">
+    <div class="col-xs-12">
+      
+
+      <p id="notice"><%= notice %></p>
+      
+      
+      <!-- チャットルームのタイトルの表示 -->
+      <!-- チャットルームにいいねする -->
+      <p>
+        <%= l.t :title %>
+        <%= @chatroom.title %>
+        <span class="fav-right">
+          <% if user_signed_in? %>
+          <div id="favorite-link-<%= @chatroom.id %>"> <!-- favorite-linkはAjaxで使うから残しといて タグ名は変えていいよ(div→spanとか) -->
+            <%= render "favorites/favorite_links", chatroom: @chatroom %>
+          </div>
+          <% end %>
+        </span>
+      </p>
+
+      <p>
+        <%= l.t :subject %>
+        <%= @chatroom.subject %>
+      </p>
+
+      <p>
+        <%= l.t :studentYear %>
+        <%= @chatroom.studentYear %>年
+      </p>
+      
+      
+      <!-- コメントの表示 -->
+      <div class="">
+        <% @notes.each do |note| %>
+          <div class="">
+            <% if user_signed_in? %>
+              <% if current_user.id == note.user.id %>
+                <%= note.user.name %>
+                <%= note.user.studentType %>
+                <% if note.user.studentType != "その他" %>
+                  <%= note.user.studentYear.to_s + "年生" %>
+                <% end %>
+                <span class="right">
+                  <%= link_to '消去', note, method: :delete, data: { confirm: '本当に消しても大丈夫ですか？' } %>
+                </span>
+                <div class="chat chat-right">
+                  <%= note.content %>
+                </div>
+              <% else %>
+                <span id="like-link-<%= note.id %>"><!-- like-linkはAjaxで使うから残しといて タグ名は変えていいよ(div→spanとか) -->
+                  <%= render "likes/like_links", note: note %>
+                </span>
+                <span>
+                  <a href="#rep" onclick="showComment('<%= note.content %>')"><!--コメント--></a>
+                </span>
+                <span class="right">
+                  <%= note.user.studentType %>
+                  <% if note.user.studentType != "その他" %>
+                    <%= note.user.studentYear.to_s + "年生" %>
+                  <% end %>
+                  <%= note.user.name %>
+                </span>
+                <div class="chat chat-right">
+                  <%= note.content %>
+                </div>
+              <% end %>
+            <% else %>
+              <span>　</span>
+              <span class="right">
+                <%= note.user.studentType %>
+                <% if note.user.studentType != "その他" %>
+                  <%= note.user.studentYear %>
+                <% end %>
+                <%= note.user.name %>
+              </span>
+              <div class="chat chat-right">
+                <%= note.content %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- コメントの作成 -->
+      <div class="">
+        <% if user_signed_in? %>
+          <%= render 'notes/form' %>
+        <% end %>
+      </div>
+      <%= link_to image_tag("back.png", :size => "35x35", :alt => "アイコン", :style => "position: fixed; left: 3%; bottom: 5%;"), chatrooms_path %>
+    </div>
+  </div>
+</div>
+<% end %>

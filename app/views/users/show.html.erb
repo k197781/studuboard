@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      
+
+      <!-- マイページ -->
+      <p id="notice"><%= notice %></p>
+      
+      <div class="col-sm-4">
+      <div class="my_right">
+        
+        <div class="my_image">
+          <strong>image:</strong>
+          <% if @user.image %>
+            <%= image_tag "/user_images/#{@user.image}" %>
+          <% else %>
+            <%= image_tag "image.png" %>
+          <% end %>
+        </div>
+        
+        <div class="">
+          <strong>Name:</strong>
+          <%= @user.name %>
+        </div>
+        
+        <div class="">
+          <strong>StudentType:</strong>
+          <% if @user.studentType == "その他" %>
+          <%= @user.studentType %>
+          <% else %>
+          <%= @user.studentType %>   <!-- 小学生なら学年を表示 -->
+          <%= @user.studentYear %>年生
+          <% end %>
+        </div>
+        
+        <div class="">
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </div>
+  
+        <div class="">
+          <% if user_signed_in? && current_user.id == @user.id %>
+          <%= link_to 'へんしゅう', edit_user_path(@user) %>
+          <% end %>
+        </div>
+        
+      </div>
+      </div> 
+      
+      <div class="col-sm-8">
+      <div class="my_left">  
+        
+        <!-- いいねしたコメント -->
+        <div class="like">いいねしたコメント
+          <div class="">
+            <% @notes.each do |note| %>
+            <div class="">
+              <%= note.user.name %>
+              <%= note.user.studentType %>
+              <% if note.user.studentType != "その他" %>
+              <%= note.user.studentYear %>
+              <% end %>
+              <%= note.content %>
+              <% if user_signed_in? && current_user.id == @user.id %>
+                <div id="like-link-<%= note.id %>" style="margin-bottom: 0.5rem;"><!-- like-linkはAjaxで使うから残しといて タグ名は変えていいよ(div→spanとか) -->
+                  <%= render "likes/like_links", note: note %>
+                </div>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        
+        <!-- お気に入りのチャットルーム -->
+        <div class="favorite">お気に入りのチャットルーム
+          <div class="">
+            <% @chatrooms.each do |chatroom| %>
+            <div class="">
+              <div class="btn-group">
+                <% subject_class = {'国語'=>'btn btn-danger btn-xs', '算数'=>'btn btn-info btn-xs', '理科'=>'btn btn-success btn-xs', '社会'=>'btn btn-warning btn-xs'} %>
+                <% year_class = { 3=>'btn btn-xs btn-primary', 4=>'btn btn-xs btn-warning', 5=>'btn btn-xs btn-info', 6=>'btn btn-xs btn-success' } %>
+                <%= button_tag chatroom.subject, :name => 'subject', :class => subject_class[chatroom.subject], :type => 'submit', :disabled => 'disable' %>
+                <%= button_tag chatroom.studentYear.to_s + '年', :name => 'studentyear', :class => year_class[chatroom.studentYear], :type => 'submit', :disabled => 'disable' %>
+                <%= link_to chatroom.title, chatroom, :class => 'btn btn-default btn-xs' %>
+              </div>
+              <% if user_signed_in? && current_user.id == @user.id %>
+                <div id="favorite-link" style="margin-bottom: 0.5rem;"> <!-- favorite-linkはAjaxで使うから残しといて タグ名は変えていいよ(div→spanとか) -->
+                  <%= render "favorites/favorite_links", chatroom: chatroom %>
+                </div>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        
+        <!-- 友達申請 -->
+        <div class="friend">
+          <% if user_signed_in? && current_user.id != @user.id && @user.id != 17 %>
+            <%= link_to '友達しんせいする', submit_path(@user.id), :method => :post %>
+          <% end %>
+          
+        </div>
+        <div class="">
+          <% if @user.id == 3 %><!-- ゆきさんのみ -->
+          <div class="">
+            友達
+              <div class="">
+                <%= link_to 'aki', user_path(5) %>
+                <%= link_to 'チャットルームに行く', chatroom_path(11) %>
+              </div>
+          </div>
+          <div class="friendship">
+            <%= link_to 'かな', user_path(16) %>さんから友達しんせいが届いています
+          </div>
+          <% end %>
+          <% if @user.id == 5 %><!-- akiさんのみ -->
+          <div class="">
+            友達
+              <div class="">
+                <%= link_to 'ゆき', user_path(3) %>
+                <%= link_to 'チャットルームに行く', chatroom_path(11) %>
+              </div>
+          </div>
+          <% end %>
+        </div>
+        
+      </div>  
+      </div>
+      
+    </div>
+  </div>
+</div>

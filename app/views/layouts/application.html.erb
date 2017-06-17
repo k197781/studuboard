@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudyBoard</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <meta charset="utf-8">
+  
+</head>
+<body>
+  <header class="navbar navbar-default" style="margin-bottom: 0;">
+    <div class="headerLeft navbar-header">
+      <%= link_to "スタディ ボード", root_path %>
+    </div>
+    <button class="navbar-toggle" data-toggle="collapse" data-target=".target">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="headerRight collapse navbar-collapse target">
+    <% if user_signed_in? %>
+      <ul class="headerRightTitle">
+        <li><%= link_to "トップ", root_path %></li>
+        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% else %>
+      <ul class="headerRightTitle">
+        <li><%= link_to "トップ", root_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "とうろく", new_user_registration_path %></li>
+      </ul>
+    <% end %>
+    </div>
+  </header>
+  <div class="contents">
+  <%= yield %>
+  </div>
+  <div id="top-link-bot"><a href=""><%= image_tag("arrow.png", :size => "35x35", :alt => "アイコン", :style => "position: fixed; right: 3%; bottom: 5%;") %></a></div>
+</body>
+</html>
+
+<!--
+    <div class="headerLeft">
+      <%= link_to "スタディ ボード", root_path %>
+    </div>
+    <div class="headerRight">
+    <% if user_signed_in? %>
+      <ul class="headerRightTitle">
+        <li><%= link_to "トップ", root_path %></li>
+        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% else %>
+      <ul class="headerRightTitle">
+        <li><%= link_to "トップ", root_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "とうろく", new_user_registration_path %></li>
+      </ul>
+    <% end %>
+    </div>
+
+
+-->

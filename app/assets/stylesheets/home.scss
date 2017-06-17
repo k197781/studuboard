@@ -1,0 +1,99 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn{
+  font-weight: bold;
+  box-shadow: 2px 2px 3px #000;
+}
+
+.new-chat{
+  .btn{
+    box-shadow: 0px 0px 0px #000;
+    
+    &[disabled]{
+      cursor: default;
+    }
+  }
+  
+  .btn-group{
+    margin-bottom: 0.2rem;
+  }
+}
+
+
+
+.btn-default:hover{
+  background: #fff;
+}
+
+.btn-success{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7de258+0,4cdb5b+100 */
+  background: #7de258; /* Old browsers */
+  background: -moz-linear-gradient(top,  #7de258 0%, #4cdb5b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #7de258 0%,#4cdb5b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #7de258 0%,#4cdb5b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7de258', endColorstr='#4cdb5b',GradientType=0 ); /* IE6-9 */
+}
+
+.btn-info{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7fceff+0,66b6fc+100 */
+  background: #7fceff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #7fceff 0%, #66b6fc 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #7fceff 0%,#66b6fc 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #7fceff 0%,#66b6fc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fceff', endColorstr='#66b6fc',GradientType=0 ); /* IE6-9 */
+}
+
+.btn-warning{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcc214+0,f2b721+100,efbf1f+100 */
+  background: #fcc214; /* Old browsers */
+  background: -moz-linear-gradient(top,  #fcc214 0%, #f2b721 100%, #efbf1f 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #fcc214 0%,#f2b721 100%,#efbf1f 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #fcc214 0%,#f2b721 100%,#efbf1f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcc214', endColorstr='#efbf1f',GradientType=0 ); /* IE6-9 */
+}
+
+.btn-primary{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#257eea+0,0470e2+100 */
+  background: #257eea; /* Old browsers */
+  background: -moz-linear-gradient(top,  #257eea 0%, #0470e2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #257eea 0%,#0470e2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #257eea 0%,#0470e2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#257eea', endColorstr='#0470e2',GradientType=0 ); /* IE6-9 */
+}
+
+.btn-danger{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3019+0,e80404+100 */
+  background: #ff3019; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ff3019 0%, #e80404 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ff3019 0%,#e80404 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #FF4838 0%,#E53939 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#e80404',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+
+
+
+
+.home{
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li{
+    list-style:none;
+    float: left;
+    padding-right: 1rem;
+    border: none;
+  }
+
+  .navbar-brand{
+    padding: 15px 1rem 0 0;
+  }
+
+    
+}

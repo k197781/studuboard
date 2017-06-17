@@ -1,0 +1,79 @@
+// Place all the styles related to the Chatrooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.chatrooms{
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li{
+    list-style:none;
+    float: left;
+    padding-right: 1rem;
+    border: none;
+  }
+    
+  
+  .navbar-brand{
+    padding: 15px 1rem 0 0;
+  }
+
+}
+
+.chatroom{
+  .fav-right{
+    white-space: nowrap;
+    margin-left: 20rem;
+  }
+  .chat{
+    margin: 0.8rem 0;
+    position: relative;
+    padding:1em;
+    border-radius:5px;
+    background: lightblue;
+  }
+  .chat:after{
+    position: absolute;
+    content: " ";
+    height: 0;
+    width: 0;
+  }
+  .chat-right:after{
+    bottom: 100%;
+    right: 2%;
+    border-bottom:10px solid lightblue;
+    border-left:10px solid transparent;
+  }
+  .chat-left:after{
+    bottom: 100%;
+    left: 2%;
+    border-bottom:10px solid lightblue;
+    border-right:10px solid transparent;
+  }
+  .reply{
+    margin: 0.8rem 0;
+    position: relative;
+    padding:1em;
+    background: lighten(lightblue, 15%);
+  }
+  .reply:after{
+    position: absolute;
+    content: " ";
+    height: 0;
+    width: 0;
+  }
+  .reply:before {
+    content: "";
+    display: inline-block;
+    border: 8px solid transparent;
+    border-top-color: #fff;
+    position: absolute;
+    left:50%;
+    top: 0;
+  }
+
+  .right{
+    float: right;
+  }
+}

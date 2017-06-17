@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      
+      <p id="notice"><%= notice %></p>
+      
+      <p>
+        <strong>Content:</strong>
+        <%= @note.content %>
+      </p>
+      
+      <p>
+        <strong>Studenttype:</strong>
+        <%= @note.studentType %>
+      </p>
+      
+      <p>
+        <strong>Subject:</strong>
+        <%= @note.subject %>
+      </p>
+      
+      <p>
+        <strong>name:</strong>
+        <%= @note.user.name %>
+      </p>
+      
+      
+      <% if user_signed_in? && current_user.id == @note.user.id %>
+      <%= link_to 'Edit', edit_note_path(@note) %> 
+      <% end %>
+      <%= link_to 'Back', notes_path %>
+
+    </div>
+  </div>
+</div>

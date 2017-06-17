@@ -1,0 +1,50 @@
+
+
+
+
+<%= form_tag root_path do %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>トップページ</h1>
+      <p>小学生のための勉強チャットルーム</p>
+      <!-- 学年を決める-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-5 col-sm-2" style="margin-bottom: 0.6rem;">
+      <button type='submit' name='studentyear' value=3 class='btn btn-primary btn-lg'>３年生</button>
+    </div>
+    <div class="col-xs-7 col-sm-2" style="margin-bottom: 0.6rem;">
+      <button type='submit' name='studentyear' value=4 class='btn btn-warning btn-lg'>４年生</button>
+    </div>
+    <div class="col-xs-5 col-sm-2">
+      <button type='submit' name='studentyear' value=5 class='btn btn-info btn-lg'>５年生</button>
+    </div>
+    <div class="col-xs-7 col-sm-2">
+      <button type='submit' name='studentyear' value=6 class='btn btn-success btn-lg'>６年生</button>
+    </div>
+  </div>
+  <div class="row new-chat">
+    <div class="col-xs-12">
+      <article>
+        <h5>新しいチャットページ</h5>
+        <div class="">
+          <% @chatrooms.reverse.each do |chatroom| %>
+          <div class="btn-group">
+            <% subject_class = {'国語'=>'btn btn-danger btn-xs', '算数'=>'btn btn-info btn-xs', '理科'=>'btn btn-success btn-xs', '社会'=>'btn btn-warning btn-xs'} %>
+            <% year_class = { 3=>'btn btn-xs btn-primary', 4=>'btn btn-xs btn-warning', 5=>'btn btn-xs btn-info', 6=>'btn btn-xs btn-success' } %>
+            <%#= button_tag year_list[-1].to_s + "年生", :class => year_class.shift[1], :name => 'studentyear', :value => year_list.pop %>
+            <%= button_tag chatroom.subject, :name => 'subject', :class => subject_class[chatroom.subject], :value => (chatroom.subject + chatroom.studentYear.to_s), :type => 'submit' %>
+            <%= button_tag chatroom.studentYear.to_s + '年', :name => 'studentyear', :class => year_class[chatroom.studentYear], :value => chatroom.studentYear, :type => 'submit' %>
+            <%= button_tag chatroom.title, :name => 'chatroom', :class => 'btn btn-default btn-xs', :value => (chatroom.subject + chatroom.studentYear.to_s + chatroom.id.to_s), :type => 'submit' %>
+          </div>
+          <div></div>
+          <% end %>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+<% end %>
+

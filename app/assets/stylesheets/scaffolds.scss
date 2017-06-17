@@ -1,0 +1,187 @@
+$color-header: lighten(green, 10%);
+$color-header-text: lighten(green, 5%);
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+body{
+  margin: 0px !important;
+} 
+
+h1{
+  white-space: nowrap;
+}
+
+
+header{
+  padding: 0px 4%;
+  height: 40px;   /* bootstrap */
+  border-bottom: solid 1px whitesmoke;
+  z-index: 10;
+  background-color: $color-header;
+  a {
+    color: $color-header-text;
+  
+    &:visited {
+      color: $color-header-text;
+    }
+  
+    &:hover {
+      color: lighten($color-header-text, 10%);
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+} 
+
+.headerLeft{
+  float: left;    /* bootstrap */
+  width: 44%;     /* bootstrap */
+  line-height: 40px;
+  color: $color-header-text;
+  text-shadow: -1px -1px 1px #fff, 2px 2px #444;
+  font-size: 30px;
+  a {
+    &:hover {
+      color: $color-header-text;
+    }
+  }
+}
+
+.headerRight{
+  float: right;  /* bootstrap */
+  width: 56%;    /* bootstrap */
+}
+
+.headerRightTitle li{
+  list-style:none;
+  float: left;
+  box-sizing: border-box;
+  width: 33%;
+  line-height: 40px;
+  text-align: center;
+  border-left: solid 1px #eee;
+  color: $color-header-text;
+  text-shadow: -1px -1px 1px #fff, 2px 2px #444;
+  font-size: 30px;
+}
+
+.contents{
+  margin: 0 auto;
+}
+
+
+@media (max-width: 970px){
+  header{
+    height: 40px;
+  }
+  .headerLeft{
+    font-size: 27px;
+    width: 36%;
+  }
+  .headerRight{
+    width: 64%;
+  }
+  .headerRightTitle li{
+    line-height: 35px;
+    font-size: 27px;
+    text-shadow: -1px -1px 1px #fff, 1px 1px #444;
+  }
+  .navbar{
+    min-height: 45px;
+  }
+}
+
+@media (max-width: 768px){
+  header{
+    height: 30px;
+  }
+  .headerLeft{
+    font-size: 25px;
+    white-space: nowrap;
+  }
+  .headerRightTitle li{
+    line-height: 30px;
+    font-size: 25px;
+    border-left: none;
+    text-shadow: -1px -1px 1px #fff, 1px 1px #444;
+    writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-lr;
+    white-space: nowrap;
+  }
+  .navbar{
+    min-height: 40px;
+  }
+}

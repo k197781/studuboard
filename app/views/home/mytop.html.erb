@@ -1,0 +1,70 @@
+<div class="container home">
+  <div class="row">
+    <div class="col-xs-12">
+      
+      <h1>教科を選ぶ</h1>
+      <nav class="navbar navbar-none" style="margin-bottom: 0;">
+        <%= form_tag root_path do %>
+        <% year_list = [6, 5, 4, 3] %>
+        <% year_class = { 3=>'btn btn-xs btn-primary', 4=>'btn btn-xs btn-warning', 5=>'btn btn-xs btn-info', 6=>'btn btn-xs btn-success' } %>
+          <div class="">
+            <ul class="">
+              <% (1..4).each do %>
+              <% if year_list[-1] == $studentyear %>
+                <li class="navbar-brand">
+              <% else %>
+                <li>
+              <% end %>
+                  <%= button_tag year_list[-1].to_s + "年生", :class => year_class.shift[1], :name => 'studentyear', :value => year_list.pop %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </nav>
+      <!-- 教科を決める -->
+      <nav class="navbar navbar-none">
+        <%= form_tag mytop_path do %>
+        <% subject_list = %w(社会 理科 算数 国語) %>
+        <% subject_class = {'国語'=>'btn btn-danger', '算数'=>'btn btn-info', '理科'=>'btn btn-success', '社会'=>'btn btn-warning'} %>
+          <div class="">
+            <ul class="">
+              <% (1..4).each do %>
+                <li>
+                  <%= button_tag subject_list[-1], :class => subject_class.shift[1], :name => 'subject', :value => subject_list.pop %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </nav>
+      
+      <!-- チャットを載せる -->
+      
+          
+    </div>
+  </div>
+  <div class="row new-chat">
+    <div class="col-xs-12">
+      <article>
+        <h5>チャットルームログ</h5>
+        <div class="">
+        <%= form_tag mytop_path do %>
+          <% @chatrooms.reverse.each do |chatroom| %>
+            <% if chatroom.studentYear == $studentyear %>
+              <div class="btn-group">
+                <% subject_class = {'国語'=>'btn btn-danger btn-xs', '算数'=>'btn btn-info btn-xs', '理科'=>'btn btn-success btn-xs', '社会'=>'btn btn-warning btn-xs'} %>
+                <% year_class = { 3=>'btn btn-xs btn-primary', 4=>'btn btn-xs btn-warning', 5=>'btn btn-xs btn-info', 6=>'btn btn-xs btn-success' } %>
+                <%= button_tag chatroom.subject, :name => 'subject', :class => subject_class[chatroom.subject], :value => chatroom.subject, :type => 'submit' %>
+                <%= button_tag chatroom.studentYear.to_s + '年', :name => 'studentyear', :class => year_class[chatroom.studentYear], :type => 'submit', :disabled => 'disable' %>
+                <%= button_tag chatroom.title, :name => 'chatroom', :class => 'btn btn-default btn-xs', :value => (chatroom.subject + chatroom.id.to_s), :type => 'submit' %>
+              </div>
+              <div></div>
+            <% end %>
+          <% end %>
+        <% end %>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

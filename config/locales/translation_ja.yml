@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    models:
+      chatroom: チャットルーム  #g
+      note: Note  #g
+      user: ユーザー  #g
+
+    attributes:
+      chatroom:
+        studentYear: 学年  #g
+        subject: 教科  #g
+        title: タイトル  #g
+
+      note:
+        content: 内容  #g
+        studentType: しょくぎょう  #g
+        subject: 件名  #g
+        user: :activerecord.models.user  #g
+
+      user:
+        current_sign_in_at: Current_sign_in_at  #g
+        current_sign_in_ip: Current_sign_in_ip  #g
+        email: メール  #g
+        encrypted_password: Encrypted_password  #g
+        image: 絵 #g
+        last_sign_in_at: Last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        name: なまえ  #g
+        notes: ノート  #g
+        remember_created_at: 作成時の覚え書き  #g
+        reset_password_sent_at: Reset_password_sent_at  #g
+        reset_password_token: Reset_password_token  #g
+        studentType: しょくぎょう  #g
+        studentYear: 学年  #g
+        password: パスワード  #g
+        password_confirmation: パスワードをもういっかい  #g
+        remember_me: パスワードをきおく  #g
