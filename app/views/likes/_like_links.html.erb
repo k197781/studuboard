@@ -1,5 +1,9 @@
   <% if current_user.likes.find_by(note_id: note.id) %>
-    <%= link_to 'いいね！を取り消す', unlike_path(note.id), method: :delete, remote: true %>
+    <%= link_to unlike_path(note.id), method: :delete, remote: true, class: "star-icon" do %>
+    	<span class="glyphicon glyphicon-star"></span>
+    <% end %>
   <% else %>
-    <%= link_to 'いいね！', like_path(note.id), method: :post, remote: true %>
+    <%= link_to like_path(note.id), method: :post, remote: true, class: "star-icon" do %>
+    	<span class="glyphicon glyphicon-star-empty"></span>
+    <% end %>
   <% end %>

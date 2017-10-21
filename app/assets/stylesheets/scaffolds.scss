@@ -1,16 +1,38 @@
 $color-header: lighten(green, 10%);
-$color-header-text: lighten(green, 5%);
+$color-header-text: white;
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
 body {
   background-color: #fff;
-  color: #333;
+  color: #444;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
   line-height: 18px;
 }
 
@@ -25,11 +47,6 @@ a {
 
   &:visited {
     color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
   }
 }
 
@@ -83,12 +100,27 @@ h1{
 }
 
 
+/*   bootstrapの設定変更   */
+
+.row{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/*   bootstrapの設定変更   */
+
+
+
 header{
-  padding: 0px 4%;
-  height: 40px;   /* bootstrap */
   border-bottom: solid 1px whitesmoke;
+  background-color: #008080;
+  color: $color-header-text;
+  padding: 0px 4%;
+  height: 50px;
   z-index: 10;
-  background-color: $color-header;
   a {
     color: $color-header-text;
   
@@ -104,13 +136,11 @@ header{
   }
 } 
 
-.headerLeft{
+.header-left{
   float: left;    /* bootstrap */
   width: 44%;     /* bootstrap */
-  line-height: 40px;
-  color: $color-header-text;
-  text-shadow: -1px -1px 1px #fff, 2px 2px #444;
-  font-size: 30px;
+  line-height: 50px;
+  font-size: 24px;
   a {
     &:hover {
       color: $color-header-text;
@@ -118,46 +148,71 @@ header{
   }
 }
 
-.headerRight{
+.header-right{
   float: right;  /* bootstrap */
   width: 56%;    /* bootstrap */
 }
 
-.headerRightTitle li{
+.header-right-title li{
   list-style:none;
   float: left;
   box-sizing: border-box;
   width: 33%;
-  line-height: 40px;
+  line-height: 50px;
   text-align: center;
   border-left: solid 1px #eee;
   color: $color-header-text;
-  text-shadow: -1px -1px 1px #fff, 2px 2px #444;
-  font-size: 30px;
+  font-size: 20px;
 }
-
 .contents{
   margin: 0 auto;
+  width: 100%;
 }
 
+.heart-icon{
+  color: #a52a2a;
+  &:hover{
+    color: #a52a2a;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
 
+.star-icon{
+  color: #ffff00;
+  &:hover{
+    color: #ffff00;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
+
+.favorite-link:hover, .star-icon:hover{
+  background-color: white;
+}
+
+@media (min-width: 1260px){
+  .contents{
+    width: 1260px;
+    padding-top: 20px;
+  }
+}
 @media (max-width: 970px){
   header{
-    height: 40px;
+    height: 50px;
   }
-  .headerLeft{
+  .header-left{
     font-size: 27px;
     width: 36%;
   }
-  .headerRight{
+  .header-right{
     width: 64%;
   }
-  .headerRightTitle li{
+  .header-right-title li{
     line-height: 35px;
     font-size: 27px;
-    text-shadow: -1px -1px 1px #fff, 1px 1px #444;
   }
-  .navbar{
+  .nav-bar{
     min-height: 45px;
   }
 }
@@ -166,22 +221,21 @@ header{
   header{
     height: 30px;
   }
-  .headerLeft{
+  .header-left{
     font-size: 25px;
     white-space: nowrap;
   }
-  .headerRightTitle li{
+  .header-right-title li{
     line-height: 30px;
     font-size: 25px;
     border-left: none;
-    text-shadow: -1px -1px 1px #fff, 1px 1px #444;
     writing-mode: vertical-rl;
     -ms-writing-mode: tb-rl;
     -webkit-writing-mode: vertical-rl;
     -o-writing-mode: vertical-lr;
     white-space: nowrap;
   }
-  .navbar{
-    min-height: 40px;
+  .nav-bar{
+    min-height: 50px;
   }
 }

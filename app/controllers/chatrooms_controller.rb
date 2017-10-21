@@ -25,8 +25,9 @@ class ChatroomsController < ApplicationController
   # POST /chatrooms.json
   def create
     @chatroom = Chatroom.new(chatroom_params)
-    @chatroom.studentYear = $studentyear
-    @chatroom.subject = $subject
+    @chatroom.studentYear = current_user.studentYear
+    @chatroom.subject = params[:subject]
+    @chatroom.user_id = current_user.id
 
     respond_to do |format|
       if @chatroom.save

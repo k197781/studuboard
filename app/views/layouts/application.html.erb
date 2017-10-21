@@ -10,34 +10,33 @@
   
 </head>
 <body>
-  <header class="navbar navbar-default" style="margin-bottom: 0;">
-    <div class="headerLeft navbar-header">
+  <header class="nav-bar">
+    <div class="header-left">
       <%= link_to "スタディ ボード", root_path %>
     </div>
-    <button class="navbar-toggle" data-toggle="collapse" data-target=".target">
+    <button class="navbar-toggle">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <div class="headerRight collapse navbar-collapse target">
+    <nav class="header-right">
     <% if user_signed_in? %>
-      <ul class="headerRightTitle">
+      <ul class="header-right-title">
         <li><%= link_to "トップ", root_path %></li>
         <li><%= link_to "マイページ", user_path(current_user.id) %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% else %>
-      <ul class="headerRightTitle">
+      <ul class="header-right-title">
         <li><%= link_to "トップ", root_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
         <li><%= link_to "とうろく", new_user_registration_path %></li>
       </ul>
     <% end %>
-    </div>
+    </nav>
   </header>
   <div class="contents">
   <%= yield %>
   </div>
-  <div id="top-link-bot"><a href=""><%= image_tag("arrow.png", :size => "35x35", :alt => "アイコン", :style => "position: fixed; right: 3%; bottom: 5%;") %></a></div>
 </body>
 </html>
 

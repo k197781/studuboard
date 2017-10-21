@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :chatrooms
   resources :users
   resources :notes
-  root 'home#top'
+  root 'subjects#index'
   post '/' => 'home#mystudentyear'
   get '/about' => 'home#about'
   get '/mytop' => 'home#mytop'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   delete '/unfavorite/:chatroom_id' => 'favorites#unfavorite', as:'unfavorite'
   post '/friendship/:user_id' => 'friendships#submit', as:'submit'
 
-  get '/subjects' => 'subjects#about'
+  get '/subjects' => 'subjects#index'
 
   Constants::SUBJECTS.each do |rel|
     get "/subjects/#{rel[0].to_s}", to: 'subjects#show', rel_type: rel[0].to_s
