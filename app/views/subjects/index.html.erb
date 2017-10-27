@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="subjects">
+	  <% Constants::SUBJECTS.each do |rel| %>
+	    <%= link_to rel[1].to_s, "/subjects/#{rel[0].to_s}", class: "subject", id: "#{rel[0].to_s}" %>
+	  <% end %> 
+  </div>
+
+  <%= render 'chatroom'%>
+</div>

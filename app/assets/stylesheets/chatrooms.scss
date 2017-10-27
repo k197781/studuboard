@@ -21,7 +21,18 @@
 
 }
 
-.chatroom{
+.chatpage{
+  .chatpage-title{
+    height: 50px;
+    h1{
+      line-height: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      .heart-icon{
+        font-size: 16px;
+      }
+    }
+  }
   .fav-right{
     white-space: nowrap;
     margin-left: 20rem;
@@ -44,6 +55,12 @@
     right: 2%;
     border-bottom:10px solid lightblue;
     border-left:10px solid transparent;
+  }
+  .chat-right-my:after{
+    bottom: 100%;
+    left: 2%;
+    border-bottom:10px solid lightblue;
+    border-right:10px solid transparent;
   }
   .chat-left:after{
     bottom: 100%;

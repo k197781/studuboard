@@ -7,37 +7,29 @@
       <p id="notice"><%= notice %></p>
       
       <div class="col-sm-4">
-      <div class="my_right">
+      <div class="my-right">
         
-        <div class="my_image">
-          <strong>image:</strong>
+        <div class="my-image">
           <% if @user.image %>
             <%= image_tag "/user_images/#{@user.image}" %>
           <% else %>
-            <%= image_tag "image.png" %>
+            <%= image_tag "study.png" %>
           <% end %>
         </div>
         
-        <div class="">
-          <strong>Name:</strong>
-          <%= @user.name %>
-        </div>
-        
-        <div class="">
-          <strong>StudentType:</strong>
+        <div class="my-profile">
+          <p><%= @user.name %></p>
+          <p>
           <% if @user.studentType == "その他" %>
           <%= @user.studentType %>
           <% else %>
           <%= @user.studentType %>   <!-- 小学生なら学年を表示 -->
           <%= @user.studentYear %>年生
           <% end %>
+          </p>
+          <p><%= @user.email %></p>
         </div>
-        
-        <div class="">
-          <strong>Email:</strong>
-          <%= @user.email %>
-        </div>
-  
+
         <div class="">
           <% if user_signed_in? && current_user.id == @user.id %>
           <%= link_to 'へんしゅう', edit_user_path(@user) %>

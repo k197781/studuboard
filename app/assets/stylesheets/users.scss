@@ -1,8 +1,18 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.my_right{
-    padding-top: 20px;
+.my-right{
+    margin:0 40px;
+    .my-image{
+    	margin-bottom: 20px;
+    	img {
+				display: block;
+    		width: 100%;
+    	}
+    }
+    .my-profile{
+    	margin-bottom: 20px;
+    }
 }
 .my_left{
     padding-top: 50px;

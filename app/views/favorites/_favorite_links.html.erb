@@ -1,5 +1,9 @@
 <% if current_user.favorites.find_by(chatroom_id: chatroom.id) %>
-  <%= link_to 'お気に入りを取り消す', unfavorite_path(chatroom.id), method: :delete, remote: true %> 
-<% else %>
-  <%= link_to 'お気に入り', favorite_path(chatroom.id), method: :post, remote: true %>
+	<%= link_to unfavorite_path(chatroom.id), method: :delete, remote: true, class: "favorite-link" do %>
+  	<span class="glyphicon glyphicon-heart heart-icon"></span>
+  <% end %>
+<% else %>  
+  <%= link_to favorite_path(chatroom.id), method: :post, remote: true, class: "favorite-link" do %>
+		<span class="glyphicon glyphicon-heart-empty heart-icon"></span>
+  <% end %>
 <% end %>
